@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "name": "अश्विनी",
+    "transliteration": "Ashwini",
+    "deity": "Ashwini Kumaras",
+    "symbol": "Horse's Head",
+    "auspicious": true
+  },
+  {
+    "id": 2,
+    "name": "भरणी",
+    "transliteration": "Bharani",
+    "deity": "Yama",
+    "symbol": "Yoni",
+    "auspicious": false
+  },
+  {
+    "id": 3,
+    "name": "कृत्तिका",
+    "transliteration": "Krittika",
+    "deity": "Agni",
+    "symbol": "Razor",
+    "auspicious": true
+  },
+  {
+    "id": 4,
+    "name": "रोहिणी",
+    "transliteration": "Rohini",
+    "deity": "Brahma",
+    "symbol": "Chariot",
+    "auspicious": true
+  },
+  {
+    "id": 5,
+    "name": "मृगशीर्ष",
+    "transliteration": "Mrigashira",
+    "deity": "Soma",
+    "symbol": "Deer's Head",
+    "auspicious": true
+  },
+  {
+    "id": 6,
+    "name": "आर्द्रा",
+    "transliteration": "Ardra",
+    "deity": "Rudra",
+    "symbol": "Teardrop",
+    "auspicious": false
+  },
+  {
+    "id": 7,
+    "name": "पुनर्वसु",
+    "transliteration": "Punarvasu",
+    "deity": "Aditi",
+    "symbol": "Quiver of Arrows",
+    "auspicious": true
+  },
+  {
+    "id": 8,
+    "name": "पुष्य",
+    "transliteration": "Pushya",
+    "deity": "Brihaspati",
+    "symbol": "Cow's Udder",
+    "auspicious": true
+  },
+  {
+    "id": 9,
+    "name": "आश्लेषा",
+    "transliteration": "Ashlesha",
+    "deity": "Nagas",
+    "symbol": "Serpent",
+    "auspicious": false
+  },
+  {
+    "id": 10,
+    "name": "मघा",
+    "transliteration": "Magha",
+    "deity": "Pitris",
+    "symbol": "Throne",
+    "auspicious": true
+  },
+  {
+    "id": 11,
+    "name": "पूर्व फाल्गुनी",
+    "transliteration": "Purva Phalguni",
+    "deity": "Bhaga",
+    "symbol": "Front Legs of Bed",
+    "auspicious": true
+  },
+  {
+    "id": 12,
+    "name": "उत्तर फाल्गुनी",
+    "transliteration": "Uttara Phalguni",
+    "deity": "Aryaman",
+    "symbol": "Back Legs of Bed",
+    "auspicious": true
+  },
+  {
+    "id": 13,
+    "name": "हस्त",
+    "transliteration": "Hasta",
+    "deity": "Savitar",
+    "symbol": "Hand",
+    "auspicious": true
+  },
+  {
+    "id": 14,
+    "name": "चित्रा",
+    "transliteration": "Chitra",
+    "deity": "Tvashtar",
+    "symbol": "Pearl",
+    "auspicious": true
+  },
+  {
+    "id": 15,
+    "name": "स्वाति",
+    "transliteration": "Swati",
+    "deity": "Vayu",
+    "symbol": "Coral",
+    "auspicious": true
+  },
+  {
+    "id": 16,
+    "name": "विशाखा",
+    "transliteration": "Vishakha",
+    "deity": "Indra-Agni",
+    "symbol": "Triumphal Gateway",
+    "auspicious": true
+  },
+  {
+    "id": 17,
+    "name": "अनुराधा",
+    "transliteration": "Anuradha",
+    "deity": "Mitra",
+    "symbol": "Lotus",
+    "auspicious": true
+  },
+  {
+    "id": 18,
+    "name": "ज्येष्ठा",
+    "transliteration": "Jyeshtha",
+    "deity": "Indra",
+    "symbol": "Earring",
+    "auspicious": false
+  },
+  {
+    "id": 19,
+    "name": "मूल",
+    "transliteration": "Mula",
+    "deity": "Nirriti",
+    "symbol": "Roots",
+    "auspicious": false
+  },
+  {
+    "id": 20,
+    "name": "पूर्वाषाढ़ा",
+    "transliteration": "Purva Ashadha",
+    "deity": "Apas",
+    "symbol": "Elephant Tusk",
+    "auspicious": true
+  },
+  {
+    "id": 21,
+    "name": "उत्तराषाढ़ा",
+    "transliteration": "Uttara Ashadha",
+    "deity": "Vishvedevas",
+    "symbol": "Elephant Tusk",
+    "auspicious": true
+  },
+  {
+    "id": 22,
+    "name": "श्रवण",
+    "transliteration": "Shravana",
+    "deity": "Vishnu",
+    "symbol": "Three Footprints",
+    "auspicious": true
+  },
+  {
+    "id": 23,
+    "name": "धनिष्ठा",
+    "transliteration": "Dhanishtha",
+    "deity": "Vasus",
+    "symbol": "Drum",
+    "auspicious": true
+  },
+  {
+    "id": 24,
+    "name": "शतभिषा",
+    "transliteration": "Shatabhisha",
+    "deity": "Varuna",
+    "symbol": "Empty Circle",
+    "auspicious": false
+  },
+  {
+    "id": 25,
+    "name": "पूर्व भाद्रपद",
+    "transliteration": "Purva Bhadrapada",
+    "deity": "Aja Ekapada",
+    "symbol": "Sword",
+    "auspicious": false
+  },
+  {
+    "id": 26,
+    "name": "उत्तर भाद्रपद",
+    "transliteration": "Uttara Bhadrapada",
+    "deity": "Ahir Budhnya",
+    "symbol": "Twin",
+    "auspicious": true
+  },
+  {
+    "id": 27,
+    "name": "रेवती",
+    "transliteration": "Revati",
+    "deity": "Pushan",
+    "symbol": "Fish",
+    "auspicious": true
+  }
+]
