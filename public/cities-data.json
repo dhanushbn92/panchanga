@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Madurai",
+        "state": "Tamil Nadu",
+        "latitude": 9.9252,
+        "longitude": 78.1198,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Chennai",
+        "state": "Tamil Nadu",
+        "latitude": 13.0827,
+        "longitude": 80.2707,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Bangalore",
+        "state": "Karnataka",
+        "latitude": 12.9716,
+        "longitude": 77.5946,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Mumbai",
+        "state": "Maharashtra",
+        "latitude": 19.0760,
+        "longitude": 72.8777,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Delhi",
+        "state": "Delhi",
+        "latitude": 28.7041,
+        "longitude": 77.1025,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Varanasi",
+        "state": "Uttar Pradesh",
+        "latitude": 25.3176,
+        "longitude": 82.9739,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Haridwar",
+        "state": "Uttarakhand",
+        "latitude": 29.9457,
+        "longitude": 78.1642,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    },
+    {
+        "name": "Kanyakumari",
+        "state": "Tamil Nadu",
+        "latitude": 8.0883,
+        "longitude": 77.5385,
+        "timezone": "Asia/Kolkata",
+        "utcOffset": "+05:30"
+    }
+]
