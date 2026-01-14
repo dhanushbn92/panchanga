@@ -1,32 +1,38 @@
 @echo off
 echo ============================================
-echo   Vedic Panchanga - Firebase Setup Helper
+echo   Vedic Panchanga - FINAL DEPLOY HELPER
 echo ============================================
 echo.
-echo This script will help you link your local code to a Firebase project.
+
+:: 1. Consolidation
+echo [1] Consolidating files into public folder...
+if not exist public mkdir public
+copy /y index.html public\ >nul 2>&1
+copy /y styles.css public\ >nul 2>&1
+copy /y app.js public\ >nul 2>&1
+copy /y astronomy-calc.js public\ >nul 2>&1
+copy /y panchanga-calc.js public\ >nul 2>&1
+copy /y muhurta-calc.js public\ >nul 2>&1
+copy /y export.js public\ >nul 2>&1
+copy /y cities-data.json public\ >nul 2>&1
+copy /y nakshatra-data.json public\ >nul 2>&1
+
+:: 2. Verification
+echo [2] Verifying public folder content:
+dir /b public
+
+echo [3] Linking to project...
+call firebase use panchanga-anaadi
+
 echo.
-echo 1. Checking if Firebase CLI is installed...
-firebase --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ERROR: Firebase CLI not found. Please run: npm install -g firebase-tools
-    pause
-    exit /b
-)
-echo Success: Firebase CLI is installed.
+echo [4] Deploying to Firebase...
+echo IMPORTANT: Make sure you see "Deploy complete!" below.
 echo.
-echo 2. Logging in to Firebase...
-firebase login
-echo.
-echo 3. Linking this directory to your Firebase project...
-echo Please select "Hosting" when prompted by the next command.
-echo.
-firebase init hosting
-echo.
-echo 4. Deploying to Firebase...
-firebase deploy --only hosting
+call firebase deploy --only hosting
+
 echo.
 echo ============================================
-echo If deployment was successful, you will see a URL above.
-echo If it failed, please copy the error message and let me know.
+echo DONE! Please refresh: https://panchanga-anaadi.web.app/
+echo (If you still see the welcome page, press Ctrl+F5 to hard refresh)
 echo ============================================
 pause

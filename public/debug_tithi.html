@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Panchanga Debugger</title>
+
+    <!-- 1. Setup Exports Bridge -->
+    <script>
+        console.log('1. Setting up exports bridge...');
+        var exports = {}; 
+    </script>
+
+    <!-- 2. Load Library -->
+    <script src="astronomy.min.js" onerror="console.error('Failed to load astronomy.min.js')"></script>
+
+    <!-- 3. Verify Load -->
+    <script>
+        console.log('2. Script loaded. Checking status...');
+
+        // Auto-fix if needed
+        if (typeof Astronomy === 'undefined' && typeof exports !== 'undefined' && Object.keys(exports).length > 0) {
+            console.log('3. Linking exports to window.Astronomy');
+            window.Astronomy = exports;
+        }
+
+        window.onload = function () {
+            const output = document.getElementById('output');
+
+            function log(msg) {
+                output.innerHTML += msg + '<br>';
+                console.log(msg);
+            }
+
+            log('<strong>Library Status:</strong>');
+            log('typeof Astronomy: ' + typeof Astronomy);
+
+            if (typeof Astronomy === 'object') {
+                log('Astronomy.Body.Sun: ' + !!Astronomy.Body?.Sun);
+
+                // Test Calculation
+                try {
+                    const date = new Date('2026-01-13T23:00:00'); // Late evening
+                    log('<br><strong>Calculation Test for:</strong> ' + date.toString());
+
+                    // Direct library call
+                    const sun = Astronomy.Ecliptic(Astronomy.Body.Sun, date);
+                    const moon = Astronomy.Ecliptic(Astronomy.Body.Moon, date);
+                    log('Sun Longitude: ' + sun.elon.toFixed(4));
+                    log('Moon Longitude: ' + moon.elon.toFixed(4));
+
+                    // Calculate Tithi Manually
+                    const diff = (moon.elon - sun.elon + 360) % 360;
+                    const tithiNum = Math.floor(diff / 12) + 1;
+                    log('Difference: ' + diff.toFixed(4));
+                    log('Calculated Tithi Number: ' + tithiNum);
+
+                    const paksha = tithiNum <= 15 ? 'Shukla' : 'Krishna';
+                    const tithiName = tithiNum <= 15 ? tithiNum : tithiNum - 15;
+                    log('Result: ' + paksha + ' Paksha, Tithi ' + tithiName);
+
+                    if (tithiNum === 26) { // 11th of Krishna Paksha is 15 + 11 = 26
+                        log('<span style="color:green">SUCCESS: Ekadashi (11) detected correctly!</span>');
+                    } else {
+                        log('<span style="color:red">FAILURE: Expected 26 (Ekadashi), got ' + tithiNum + '</span>');
+                    }
+
+                } catch (e) {
+                    log('<span style="color:red">Error during calculation: ' + e.message + '</span>');
+                }
+            } else {
+                log('<span style="color:red">CRITICAL FAILURE: Library not loaded.</span>');
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Panchanga Debugger</h1>
+    <div id="output" style="font-family: monospace; padding: 20px; background: #f0f0f0; border: 1px solid #ccc;"></div>
+</body>
+
+</html>
