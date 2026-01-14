@@ -89,7 +89,8 @@ async function getSunset(latitude, longitude, date) {
 async function getMoonrise(latitude, longitude, date) {
     try {
         if (typeof Astronomy === 'undefined') {
-            return null; // No fallback for moonrise
+            // Fallback approximation for moonrise
+            return approximateMoonrise(latitude, longitude, date);
         }
 
         const observer = new Astronomy.Observer(latitude, longitude, 0);
@@ -103,7 +104,8 @@ async function getMoonrise(latitude, longitude, date) {
         console.error('Moonrise calculation error:', error);
     }
 
-    return null;
+    // Fallback if library fails
+    return approximateMoonrise(latitude, longitude, date);
 }
 
 /**
@@ -112,7 +114,8 @@ async function getMoonrise(latitude, longitude, date) {
 async function getMoonset(latitude, longitude, date) {
     try {
         if (typeof Astronomy === 'undefined') {
-            return null; // No fallback for moonset
+            // Fallback approximation for moonset
+            return approximateMoonset(latitude, longitude, date);
         }
 
         const observer = new Astronomy.Observer(latitude, longitude, 0);
@@ -126,7 +129,8 @@ async function getMoonset(latitude, longitude, date) {
         console.error('Moonset calculation error:', error);
     }
 
-    return null;
+    // Fallback if library fails
+    return approximateMoonset(latitude, longitude, date);
 }
 
 /**
@@ -285,6 +289,78 @@ function approximateMoonPhase(date) {
 
     return illumination * 100;
 }
+
+/**
+ * Approximate moonrise time (fallback)
+ * Based on moon's current phase and position
+ */
+function approximateMoonrise(latitude, longitude, date) {
+    const localDate = new Date(date);
+
+    // Get moon phase to estimate rise time
+    const moonPhase = approximateMoonPhase(date);
+
+    // Moon rises ~50 minutes later each day
+    const referenceDate = new Date('2000-01-06'); // New moon reference
+    const daysSinceReference = (date - referenceDate) / (1000 * 60 * 60 * 24);
+    const lunarMonth = 29.53059; // Synodic month
+    const dayInCycle = ((daysSinceReference % lunarMonth) + lunarMonth) % lunarMonth;
+
+    // Base time: new moon rises at sunrise, full moon at sunset
+    // Calculate rise time based on lunar phase
+    const sunriseHour = 6; // Approximate sunrise
+    const sunsetHour = 18; // Approximate sunset
+
+    // Interpolate between sunrise (new moon) and sunset (full moon)
+    const phaseFraction = dayInCycle / lunarMonth;
+    const baseHour = sunriseHour + (phaseFraction * (sunsetHour - sunriseHour));
+
+    // Adjust for latitude (very rough)
+    const latitudeAdjustment = (latitude - 10) * 2 / 60; // Hours adjustment
+    const adjustedHour = baseHour + latitudeAdjustment;
+
+    localDate.setHours(Math.floor(adjustedHour), Math.floor((adjustedHour % 1) * 60), 0, 0);
+
+    return localDate;
+}
+
+/**
+ * Approximate moonset time (fallback)
+ * Based on moon's current phase and position
+ */
+function approximateMoonset(latitude, longitude, date) {
+    const localDate = new Date(date);
+
+    // Get moon phase to estimate set time
+    const moonPhase = approximateMoonPhase(date);
+
+    const referenceDate = new Date('2000-01-06'); // New moon reference
+    const daysSinceReference = (date - referenceDate) / (1000 * 60 * 60 * 24);
+    const lunarMonth = 29.53059; // Synodic month
+    const dayInCycle = ((daysSinceReference % lunarMonth) + lunarMonth) % lunarMonth;
+
+    // Base time: new moon sets at sunset, full moon at sunrise next day
+    const sunriseHour = 6; // Approximate sunrise
+    const sunsetHour = 18; // Approximate sunset
+
+    // Interpolate between sunset (new moon) and sunrise next day (full moon)
+    const phaseFraction = dayInCycle / lunarMonth;
+    let baseHour = sunsetHour + (phaseFraction * (24 + sunriseHour - sunsetHour));
+
+    // Handle wrapping to next day
+    if (baseHour >= 24) {
+        baseHour -= 24;
+    }
+
+    // Adjust for latitude
+    const latitudeAdjustment = (latitude - 10) * 2 / 60;
+    const adjustedHour = baseHour + latitudeAdjustment;
+
+    localDate.setHours(Math.floor(adjustedHour), Math.floor((adjustedHour % 1) * 60), 0, 0);
+
+    return localDate;
+}
+
 
 /**
  * Get day of year (1-365/366)
