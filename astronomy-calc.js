@@ -244,14 +244,22 @@ function approximateSunLongitude(date) {
 
 /**
  * Approximate Moon's longitude (fallback)
- * Moon completes orbit in ~27.3 days
+ * Moon completes orbit in ~27.3 days (sidereal month)
+ * Using improved formula with better epoch
  */
 function approximateMoonLongitude(date) {
-    const referenceDate = new Date('2000-01-06'); // New moon reference
-    const daysSinceReference = (date - referenceDate) / (1000 * 60 * 60 * 24);
-    const cycles = daysSinceReference / 27.32166;
-    const longitude = (cycles % 1) * 360;
-    return normalizeDegrees(longitude);
+    // Reference: January 1, 2000, 12:00 UTC - Moon was approximately at 218° tropical
+    const epoch = new Date('2000-01-01T12:00:00Z');
+    const daysSinceEpoch = (date - epoch) / (1000 * 60 * 60 * 24);
+
+    // Mean lunar motion: 360° / 27.321661 days (sidereal month)
+    const meanMotion = 13.17639648; // degrees per day
+
+    // Calculate mean longitude (tropical)
+    // Starting position at epoch + accumulated movement
+    const meanLongitude = 218.0 + (daysSinceEpoch * meanMotion);
+
+    return normalizeDegrees(meanLongitude);
 }
 
 /**

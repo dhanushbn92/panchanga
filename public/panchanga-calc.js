@@ -13,12 +13,23 @@ function calculateTithi(date) {
     const sunLon = getSiderealLongitude(getSunLongitude(date), date);
     const moonLon = getSiderealLongitude(getMoonLongitude(date), date);
 
-    // Calculate difference
+    // Calculate difference between Moon and Sun (elongation)
     let diff = moonLon - sunLon;
     if (diff < 0) diff += 360;
 
-    // Each Tithi is 12 degrees
-    const tithiNumber = Math.floor(diff / 12) + 1;
+    // Normalize to 0-360 range
+    diff = diff % 360;
+
+    // Each Tithi is 12 degrees (30 tithis in 360 degrees)
+    // Tithi 1 starts at 0°, Tithi 2 at 12°, etc.
+    // Use floor to get the tithi index (0-29), then add 1 to get tithi number (1-30)
+    let tithiIndex = Math.floor(diff / 12);
+
+    // Ensure valid range 0-29, then convert to 1-30
+    tithiIndex = tithiIndex % 30;
+    const tithiNumber = tithiIndex + 1;
+
+    // Calculate progress within current tithi (0-100%)
     const tithiProgress = (diff % 12) / 12 * 100;
 
     const tithiData = getTithiData(tithiNumber);
@@ -214,15 +225,15 @@ function calculateKarana(date) {
  * Get Karana data by index
  */
 function getKaranaData(index) {
-    // 4 fixed Karanas (for end of month)
+    // 4 fixed Karanas
     const fixedKaranas = [
-        { name: 'शकुनि', transliteration: 'Shakuni', type: 'Fixed', auspicious: false },
-        { name: 'चतुष्पाद', transliteration: 'Chatushpada', type: 'Fixed', auspicious: false },
-        { name: 'नाग', transliteration: 'Naga', type: 'Fixed', auspicious: false },
-        { name: 'किंस्तुघ्न', transliteration: 'Kimstughna', type: 'Fixed', auspicious: false }
+        { name: 'किंस्तुघ्न', transliteration: 'Kimstughna', type: 'Fixed', auspicious: false },  // Index 0
+        { name: 'शकुनि', transliteration: 'Shakuni', type: 'Fixed', auspicious: false },           // Index 57
+        { name: 'चतुष्पाद', transliteration: 'Chatushpada', type: 'Fixed', auspicious: false },    // Index 58
+        { name: 'नाग', transliteration: 'Naga', type: 'Fixed', auspicious: false }                // Index 59
     ];
 
-    // 7 repeating Karanas
+    // 7 repeating Karanas (for indices 1-56)
     const repeatingKaranas = [
         { name: 'बव', transliteration: 'Bava', type: 'Movable', auspicious: true },
         { name: 'बालव', transliteration: 'Balava', type: 'Movable', auspicious: true },
@@ -233,11 +244,21 @@ function getKaranaData(index) {
         { name: 'विष्टि', transliteration: 'Vishti', type: 'Movable', auspicious: false }
     ];
 
-    // Last 4 Karanas are fixed
-    if (index >= 56) {
+    // Index 0: First Kimstughna (2nd half of Amavasya)
+    if (index === 0) {
+        return fixedKaranas[0];
+    }
+
+    // Indices 1-56: Repeating pattern of 7 Karanas (8 complete cycles)
+    if (index >= 1 && index <= 56) {
+        return repeatingKaranas[(index - 1) % 7];
+    }
+
+    // Indices 57-59: Last 3 fixed Karanas (end of month)
+    if (index >= 57 && index <= 59) {
         return fixedKaranas[index - 56];
     }
 
-    // First 56 are repeating pattern of 7
-    return repeatingKaranas[index % 7];
+    // Fallback (should not reach here if index is in 0-59 range)
+    return fixedKaranas[0];
 }
