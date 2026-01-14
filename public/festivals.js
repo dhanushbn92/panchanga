@@ -11,8 +11,8 @@ let festivalsData = [
         "names": {
             "sanskrit": "मकर संक्रान्तिः",
             "tamil": "பொங்கல்",
-            "kannada": "ಪೊಂಗಲ್",
-            "telugu": "పొంగల్",
+            "kannada": "ಮಕರ ಸಂಕ್ರಾಂತಿ"
+            "telugu": "మకర సంక్రాంతి",
             "malayalam": "പൊങ്കൽ",
             "english": "Pongal"
         },
@@ -128,7 +128,7 @@ let festivalsData = [
             "malayalam": "രാമ നവമി",
             "english": "Ram Navami"
         },
-        "date": "2026-04-18",
+        "date": "2026-03-26",
         "type": "religious",
         "regions": ["all"],
         "description": "Birthday of Lord Rama"
