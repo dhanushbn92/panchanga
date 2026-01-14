@@ -1,0 +1,272 @@
+[
+    {
+        "id": 1,
+        "name": "Pongal",
+        "nameLocal": "பொங்கல்",
+        "date": "2026-01-15",
+        "type": "harvest",
+        "regions": [
+            "Tamil Nadu",
+            "Karnataka"
+        ],
+        "description": "Tamil harvest festival celebrating the Sun God",
+        "significance": "Marks the end of winter solstice and beginning of sun's northward journey"
+    },
+    {
+        "id": 2,
+        "name": "Makar Sankranti",
+        "nameLocal": "मकर संक्रांति",
+        "date": "2026-01-15",
+        "type": "astronomical",
+        "regions": [
+            "Maharashtra",
+            "Karnataka",
+            "Uttar Pradesh",
+            "Delhi"
+        ],
+        "description": "Festival marking the sun's transit into Capricorn",
+        "significance": "Celebrates the harvest season and marks the end of winter"
+    },
+    {
+        "id": 3,
+        "name": "Thaipusam",
+        "nameLocal": "தைப்பூசம்",
+        "date": "2026-02-01",
+        "type": "religious",
+        "regions": [
+            "Tamil Nadu"
+        ],
+        "description": "Festival dedicated to Lord Murugan",
+        "significance": "Celebrated on the full moon in Tamil month of Thai"
+    },
+    {
+        "id": 4,
+        "name": "Maha Shivaratri",
+        "nameLocal": "महाशिवरात्रि",
+        "date": "2026-02-17",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Great night of Lord Shiva",
+        "significance": "Celebrated on Krishna Chaturdashi of Magha month"
+    },
+    {
+        "id": 5,
+        "name": "Holi",
+        "nameLocal": "होली",
+        "date": "2026-03-06",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Festival of colors",
+        "significance": "Celebrated on Purnima of Phalguna month"
+    },
+    {
+        "id": 6,
+        "name": "Ugadi",
+        "nameLocal": "ಯುಗಾದಿ",
+        "date": "2026-03-22",
+        "type": "new_year",
+        "regions": [
+            "Karnataka"
+        ],
+        "description": "Kannada and Telugu New Year",
+        "significance": "Celebrated on Chaitra Shukla Pratipada"
+    },
+    {
+        "id": 7,
+        "name": "Tamil New Year",
+        "nameLocal": "தமிழ் புத்தாண்டு",
+        "date": "2026-04-14",
+        "type": "new_year",
+        "regions": [
+            "Tamil Nadu"
+        ],
+        "description": "Tamil New Year - Puthandu",
+        "significance": "Marks the first day of Chithirai month"
+    },
+    {
+        "id": 8,
+        "name": "Ram Navami",
+        "nameLocal": "राम नवमी",
+        "date": "2026-04-18",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Birthday of Lord Rama",
+        "significance": "Celebrated on Navami of Chaitra Shukla Paksha"
+    },
+    {
+        "id": 9,
+        "name": "Akshaya Tritiya",
+        "nameLocal": "अक्षय तृतीया",
+        "date": "2026-04-30",
+        "type": "auspicious",
+        "regions": [
+            "all"
+        ],
+        "description": "One of the most auspicious days in Hindu calendar",
+        "significance": "Celebrated on Tritiya of Vaishakha Shukla Paksha"
+    },
+    {
+        "id": 10,
+        "name": "Buddha Purnima",
+        "nameLocal": "बुद्ध पूर्णिमा",
+        "date": "2026-05-16",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Birthday of Gautama Buddha",
+        "significance": "Celebrated on Purnima of Vaishakha month"
+    },
+    {
+        "id": 11,
+        "name": "Jagannath Rath Yatra",
+        "nameLocal": "जगन्नाथ रथ यात्रा",
+        "date": "2026-06-20",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Chariot festival of Lord Jagannath",
+        "significance": "Celebrated on Ashadha Shukla Dwitiya"
+    },
+    {
+        "id": 12,
+        "name": "Guru Purnima",
+        "nameLocal": "गुरु पूर्णिमा",
+        "date": "2026-07-15",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Day to honor spiritual and academic teachers",
+        "significance": "Celebrated on Purnima of Ashadha month"
+    },
+    {
+        "id": 13,
+        "name": "Nag Panchami",
+        "nameLocal": "नाग पंचमी",
+        "date": "2026-07-21",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Festival dedicated to serpent deities",
+        "significance": "Celebrated on Panchami of Shravana Shukla Paksha"
+    },
+    {
+        "id": 14,
+        "name": "Raksha Bandhan",
+        "nameLocal": "रक्षा बंधन",
+        "date": "2026-08-09",
+        "type": "social",
+        "regions": [
+            "all"
+        ],
+        "description": "Festival celebrating brother-sister bond",
+        "significance": "Celebrated on Purnima of Shravana month"
+    },
+    {
+        "id": 15,
+        "name": "Krishna Janmashtami",
+        "nameLocal": "कृष्ण जन्माष्टमी",
+        "date": "2026-08-15",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Birthday of Lord Krishna",
+        "significance": "Celebrated on Ashtami of Bhadrapada Krishna Paksha"
+    },
+    {
+        "id": 16,
+        "name": "Ganesh Chaturthi",
+        "nameLocal": "गणेश चतुर्थी",
+        "date": "2026-08-25",
+        "type": "religious",
+        "regions": [
+            "Maharashtra",
+            "Karnataka",
+            "all"
+        ],
+        "description": "Birthday of Lord Ganesha",
+        "significance": "Celebrated on Chaturthi of Bhadrapada Shukla Paksha"
+    },
+    {
+        "id": 17,
+        "name": "Onam",
+        "nameLocal": "ഓണം",
+        "date": "2026-09-05",
+        "type": "harvest",
+        "regions": [
+            "Karnataka"
+        ],
+        "description": "Harvest festival of Kerala",
+        "significance": "Celebrated during Chingam month"
+    },
+    {
+        "id": 18,
+        "name": "Navratri (Sharad)",
+        "nameLocal": "नवरात्रि",
+        "date": "2026-10-13",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Nine nights of Goddess Durga worship",
+        "significance": "Celebrated in Ashwin Shukla Paksha"
+    },
+    {
+        "id": 19,
+        "name": "Dussehra",
+        "nameLocal": "दशहरा",
+        "date": "2026-10-22",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Victory of good over evil",
+        "significance": "Celebrated on Dashami of Ashwin Shukla Paksha"
+    },
+    {
+        "id": 20,
+        "name": "Diwali",
+        "nameLocal": "दीपावली",
+        "date": "2026-11-11",
+        "type": "religious",
+        "regions": [
+            "all"
+        ],
+        "description": "Festival of lights",
+        "significance": "Celebrated on Amavasya of Kartik month"
+    },
+    {
+        "id": 21,
+        "name": "Karthigai Deepam",
+        "nameLocal": "கார்த்திகை தீபம்",
+        "date": "2026-11-28",
+        "type": "religious",
+        "regions": [
+            "Tamil Nadu"
+        ],
+        "description": "Festival of lamps in Tamil Nadu",
+        "significance": "Celebrated on Kartik Purnima"
+    },
+    {
+        "id": 22,
+        "name": "Thiruvadirai",
+        "nameLocal": "திருவாதிரை",
+        "date": "2026-12-29",
+        "type": "religious",
+        "regions": [
+            "Tamil Nadu"
+        ],
+        "description": "Festival dedicated to Lord Shiva",
+        "significance": "Celebrated when moon is in Ardra nakshatra in Margazhi"
+    }
+]

@@ -103,6 +103,10 @@ async function loadDataFiles() {
     // Use embedded data to avoid CORS issues
     citiesData = EMBEDDED_CITIES_DATA;
     nakshatraData = EMBEDDED_NAKSHATRA_DATA;
+
+    // Try to load festivals data
+    await loadFestivalsData();
+
     console.log('Data loaded successfully:', citiesData.length, 'cities,', nakshatraData.length, 'nakshatras');
   } catch (error) {
     console.error('Error loading data:', error);
@@ -336,6 +340,11 @@ async function calculateAndDisplayPanchanga() {
     // Calculate Muhurta timings
     const muhurtaTimings = await calculateMuhurtaTimings(currentLocation.latitude, currentLocation.longitude, selectedDate);
 
+    // Get upcoming festivals for the current location
+    const city = citiesData.find(c => c.name === currentLocation.name);
+    const state = city ? city.state : 'Tamil Nadu';
+    const upcomingFestivals = getUpcomingFestivals(state, selectedDate, 5);
+
     // Display all data
     displayPanchangaData({
       tithi,
@@ -348,7 +357,9 @@ async function calculateAndDisplayPanchanga() {
       moonrise,
       moonset,
       moonPhase,
-      muhurtaTimings
+      muhurtaTimings,
+      upcomingFestivals,
+      currentDate: selectedDate
     });
 
   } catch (error) {
@@ -552,6 +563,31 @@ function displayPanchangaData(data) {
           <div style="font-weight: 700; color: var(--inauspicious); margin-bottom: 0.5rem;">Gulikai</div>
           <div style="font-size: 1.125rem; font-weight: 600;">${data.muhurtaTimings ? data.muhurtaTimings.gulikai.startFormatted : 'N/A'} - ${data.muhurtaTimings ? data.muhurtaTimings.gulikai.endFormatted : 'N/A'}</div>
         </div>
+      </div>
+    </div>
+    <!-- Upcoming Festivals Section -->
+    <div class="festivals-section">
+      <div class="festivals-title">🎊 Upcoming Festivals & Utsavas (Next 7 Days)</div>
+      <div class="festivals-grid">
+        ${data.upcomingFestivals && data.upcomingFestivals.length > 0 ? data.upcomingFestivals.map(festival => `
+          <div class="festival-card">
+            <div class="festival-icon">${getFestivalIcon(festival.type)}</div>
+            <div class="festival-content">
+              <div class="festival-names">
+                <div class="festival-name-multilingual festival-sanskrit">${festival.names.sanskrit}</div>
+                <div class="festival-name-multilingual festival-tamil">${festival.names.tamil}</div>
+                <div class="festival-name-multilingual festival-kannada">${festival.names.kannada}</div>
+                <div class="festival-name-multilingual festival-telugu">${festival.names.telugu}</div>
+                <div class="festival-name-multilingual festival-malayalam">${festival.names.malayalam}</div>
+                <div class="festival-name-english">${festival.names.english}</div>
+              </div>
+              <div class="festival-date">${formatFestivalDate(festival.date)}</div>
+              <div class="festival-days">In ${getDaysUntil(festival.date, data.currentDate)} days</div>
+              <div class="festival-type">${getFestivalTypeLabel(festival.type)}</div>
+              <div class="festival-description">${festival.description}</div>
+            </div>
+          </div>
+        `).join('') : '<div class="no-festivals">No upcoming festivals found for this region</div>'}
       </div>
     </div>
   `;

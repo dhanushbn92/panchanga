@@ -14,29 +14,29 @@
   --green-light: #19A50D;
   --gold: #FFD700;
   --gold-dark: #DAA520;
-  
+
   /* Neutral Colors */
   --cream: #FFF8F0;
   --beige: #F5E6D3;
   --brown: #8B4513;
   --brown-dark: #5C2E0F;
-  
+
   /* Semantic Colors */
   --auspicious: #22C55E;
   --inauspicious: #EF4444;
   --neutral: #94A3B8;
-  
+
   /* Shadows & Effects */
   --shadow-sm: 0 2px 8px rgba(255, 153, 51, 0.1);
   --shadow-md: 0 4px 16px rgba(255, 153, 51, 0.15);
   --shadow-lg: 0 8px 32px rgba(255, 153, 51, 0.2);
   --glow-auspicious: 0 0 20px rgba(34, 197, 94, 0.3);
   --glow-inauspicious: 0 0 20px rgba(239, 68, 68, 0.3);
-  
+
   /* Typography */
   --font-primary: 'Hind', sans-serif;
   --font-devanagari: 'Tiro Devanagari Sanskrit', serif;
-  
+
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -44,12 +44,12 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
-  
+
   /* Border Radius */
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
-  
+
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-base: 300ms ease-in-out;
@@ -64,7 +64,7 @@
   --brown: #D4A574;
   --brown-dark: #F5DDB8;
   --neutral: #64748B;
-  
+
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -499,6 +499,174 @@ body {
   border-left: 4px solid var(--inauspicious);
 }
 
+/* ========== Festivals Section ========== */
+.festivals-section {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-xl);
+  border: 2px solid var(--gold);
+}
+
+.festivals-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--saffron-dark);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.festivals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.festival-card {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  border: 2px solid var(--saffron-light);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.festival-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron) 0%, var(--gold) 100%);
+}
+
+.festival-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--saffron);
+}
+
+.festival-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.festival-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.festival-names {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--saffron-light);
+}
+
+.festival-name-multilingual {
+  font-size: 1.125rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--saffron-dark);
+  line-height: 1.6;
+}
+
+.festival-sanskrit,
+.festival-tamil,
+.festival-kannada,
+.festival-telugu,
+.festival-malayalam {
+  font-family: var(--font-devanagari);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.festival-name-english {
+  font-size: 1rem;
+  color: var(--brown-dark);
+  font-weight: 700;
+  text-align: center;
+}
+
+.festival-name-local {
+  font-family: var(--font-devanagari);
+  font-size: 1.5rem;
+  color: var(--saffron);
+  font-weight: 600;
+  text-align: center;
+}
+
+.festival-name {
+  font-size: 1.125rem;
+  color: var(--brown-dark);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.festival-date {
+  font-size: 0.875rem;
+  color: var(--brown);
+  font-weight: 500;
+  text-align: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(255, 153, 51, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+.festival-days {
+  font-size: 0.875rem;
+  color: var(--saffron-dark);
+  font-weight: 600;
+  text-align: center;
+  padding: var(--spacing-xs);
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.festival-type {
+  font-size: 0.75rem;
+  color: var(--white);
+  background: var(--green);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: var(--spacing-xs) auto;
+  display: inline-block;
+}
+
+.festival-description {
+  font-size: 0.875rem;
+  color: var(--brown);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: var(--spacing-xs);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--beige);
+}
+
+.no-festivals {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--brown);
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+
+
 /* ========== Export Section ========== */
 .export-section {
   display: flex;
@@ -543,8 +711,15 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .error {
@@ -576,32 +751,36 @@ body {
   .app-title {
     font-size: 1.5rem;
   }
-  
+
   .header-content {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .container {
     padding: var(--spacing-md);
   }
-  
+
   .controls-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .panchanga-display {
     grid-template-columns: 1fr;
   }
-  
+
   .time-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  .festivals-grid {
+    grid-template-columns: 1fr;
+  }
+
   .sanskrit-text {
     font-size: 1.5rem;
   }
-  
+
   .current-time-value {
     font-size: 1.5rem;
   }
@@ -611,11 +790,11 @@ body {
   .app-title {
     font-size: 1.25rem;
   }
-  
+
   .panchanga-card {
     padding: var(--spacing-md);
   }
-  
+
   .controls-section {
     padding: var(--spacing-md);
   }
@@ -623,6 +802,7 @@ body {
 
 /* ========== Print Styles ========== */
 @media print {
+
   .header,
   .controls-section,
   .export-section,
@@ -630,11 +810,11 @@ body {
   .theme-toggle {
     display: none;
   }
-  
+
   body {
     background: white;
   }
-  
+
   .panchanga-card {
     break-inside: avoid;
     box-shadow: none;
@@ -648,6 +828,7 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
